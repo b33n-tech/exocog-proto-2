@@ -1,154 +1,82 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Arial, sans-serif;
+  display: flex;
   margin: 0;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background: #2f3542;
+  color: white;
+  padding: 20px;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.sidebar ul {
   padding: 0;
-  background: #f8f9fa;
-  color: #333;
+  list-style: none;
 }
 
-header {
-  padding: 20px;
-  background: #4a90e2;
-  color: white;
-  text-align: center;
-}
-
-.llm-selector {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: center;
-}
-
-.llm-selector select {
-  padding: 5px 10px;
-  font-size: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-main {
-  display: flex;
-  flex-direction: row;
-  padding: 20px;
-  gap: 20px;
-}
-
-.input-section {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.input-section input {
-  padding: 10px;
-  font-size: 1rem;
-}
-
-.buttons-row, .paste-json-panel, .send-stack2-panel {
-  display: flex;
-  gap: 10px;
-}
-
-.input-section button {
-  padding: 10px;
-  font-size: 1rem;
+.sidebar ul li {
+  margin: 12px 0;
   cursor: pointer;
-  border: none;
-  background: #4a90e2;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 10px;
+  right: -20px;
+  background: #2f3542;
   color: white;
-  border-radius: 5px;
-  flex: 1;
-}
-
-.input-section button:hover { background: #357ABD; }
-
-.prompt-panel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  margin-top: 10px;
-}
-
-.prompt-panel button {
-  width: 200px;
-  padding: 12px;
-  font-size: 1.1rem;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
-  border: none;
-  background: #ff7f50;
-  color: white;
-  border-radius: 5px;
-  font-weight: bold;
-  text-align: center;
 }
 
-.prompt-panel button:hover { background: #e0693f; }
-
-.upload-panel input { padding: 5px; }
-
-.task-list {
+.content {
   flex: 1;
-  background: white;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  max-height: 80vh;
+  padding: 40px;
+  background: #f1f2f6;
   overflow-y: auto;
 }
 
-.task-list ul { list-style: none; padding: 0; margin: 0; }
-.task-item { padding: 8px; border-bottom: 1px solid #eee; }
-.task-item .task-text { font-weight: bold; }
-
-.comment-section {
-  margin-top: 5px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.comment-list {
-  margin-left: 10px;
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.comment-list li { margin-bottom: 2px; }
-
-.comment-input {
-  display: flex;
-  gap: 5px;
-}
-
-.comment-input input {
-  flex: 1;
-  padding: 5px;
-}
-
-.comment-input button {
-  padding: 5px 8px;
-  cursor: pointer;
-  border: none;
-  background: #ff7f50;
-  color: white;
-  border-radius: 3px;
-  font-weight: bold;
-}
-
-.comment-input button:hover { background: #e0693f; }
-
-.copied-msg {
-  position: fixed;
-  top: 70px;
-  right: 30px;
-  font-weight: bold;
-  color: green;
-  background: #e0ffe0;
-  padding: 5px 10px;
+textarea {
+  width: 100%;
+  height: 250px;
+  padding: 10px;
+  font-family: monospace;
+  resize: vertical;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.actions {
+  margin-top: 20px;
+}
+
+button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  background: #3742fa;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2f3542;
 }
