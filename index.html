@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exo Cog Fusion</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { margin: 0; display: flex; font-family: Arial; }
+    #sidebar { width: 200px; background: #eee; padding: 10px; }
+    #sidebar button { display: block; margin-bottom: 10px; width: 100%; }
+    #content { flex: 1; }
+    iframe { width: 100%; height: 100vh; border: none; display: none; }
+  </style>
+</head>
+<body>
+  <div id="sidebar">
+    <button onclick="showStack('stack1')">Stack 1</button>
+    <button onclick="showStack('stack2')">Stack 2</button>
+  </div>
+  <div id="content">
+    <iframe id="frameStack1" src="stack1/index.html"></iframe>
+    <iframe id="frameStack2" src="stack2/index.html"></iframe>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
