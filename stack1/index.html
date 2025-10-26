@@ -3,33 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stack 1 - Générateur JSON</title>
+  <title>Mini Dashboard Tâches + Commentaires</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="sidebar" class="sidebar">
-    <button id="toggleSidebar" class="toggle-btn">☰</button>
-    <h2>Stack 1</h2>
-    <ul>
-      <li>Accueil</li>
-      <li>Conversion JSON</li>
-      <li>Transfert Stack 2</li>
-    </ul>
-  </div>
+  <header>
+    <h1>🧠 Mini Dashboard Tâches</h1>
+    <p>Ajoute, archive, commente et envoie tes tâches à un LLM.</p>
 
-  <div class="content">
-    <h1>Générateur et transfert JSON</h1>
-    <p>Colle ici le contenu brut de ton fichier .txt (au format JSON brut) :</p>
-
-    <textarea id="jsonText" placeholder="Colle ici ton contenu .txt..."></textarea>
-
-    <div class="actions">
-      <button id="convertBtn">Convertir et télécharger</button>
-      <button id="sendBtn">Envoyer à Stack 2</button>
+    <!-- Sélecteur LLM -->
+    <div class="llm-selector">
+      <label for="llmSelect">Choisir LLM :</label>
+      <select id="llmSelect">
+        <option value="https://chat.openai.com/">ChatGPT</option>
+        <option value="https://chat.deepseek.com/">DeepSeek Chat</option>
+        <option value="https://chat.mistral.ai/chat">Mistral Chat</option>
+        <option value="https://claude.ai/">Claude AI</option>
+        <option value="https://www.perplexity.ai/">Perplexity</option>
+      </select>
     </div>
+  </header>
 
-    <p id="status"></p>
-  </div>
+  <main>
+    <section class="input-section">
+      <input type="text" id="taskInput" placeholder="Ex : appeler le fournisseur, revoir le doc...">
+
+      <div class="buttons-row">
+        <button id="addBtn">➕ Ajouter</button>
+        <button id="archiveBtn">📦 Archiver</button>
+      </div>
+
+      <!-- Panel Prompts -->
+      <div class="prompt-panel">
+        <h2>⚡ Prompts</h2>
+        <div id="promptsContainer"></div>
+      </div>
+
+      <!-- Nouveau champ texte pour JSON -->
+      <div class="json-text-panel">
+        <h2>📥 Coller JSON</h2>
+        <textarea id="jsonInput" placeholder="Colle ici le contenu JSON généré..." rows="10"></textarea>
+        <button id="sendToStack2Btn">➡ Envoyer à Stack 2</button>
+      </div>
+    </section>
+
+    <!-- Sidebar droite : Historique des tâches -->
+    <aside class="task-list">
+      <h2>📝 Historique des tâches</h2>
+      <ul id="tasksContainer"></ul>
+    </aside>
+
+    <div id="copiedMsg" class="copied-msg" style="display:none;">✅ Copié dans le presse-papier !</div>
+  </main>
 
   <script src="script.js"></script>
 </body>
