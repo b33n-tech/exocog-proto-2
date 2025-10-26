@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exo-Cog Partie 2</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Exo-Cog – Partie 2</h1>
+
+<div class="module" id="jalonsModule">
+  <h2>Jalons & Sous-actions</h2>
+  <ul id="jalonsList"></ul>
+</div>
+
+<div class="module" id="messagesModule">
+  <h2>Messages / Emails</h2>
+  <table id="messagesTable">
+    <thead>
+      <tr><th>À traiter</th><th>Destinataire</th><th>Sujet</th><th>Texte</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <div class="mail-actions">
+    <select id="mailPromptSelect">
+      <option value="1">Template formel</option>
+      <option value="2">Template amical</option>
+    </select>
+    <button id="generateMailBtn">Générer Mail GPT</button>
+  </div>
+</div>
+
+<div class="module" id="rdvModule">
+  <h2>Rendez-vous / Créneaux</h2>
+  <ul id="rdvList"></ul>
+</div>
+
+<div class="module" id="autresModule">
+  <h2>Autres ressources</h2>
+  <ul id="autresList"></ul>
+</div>
+
+<div class="module" id="livrablesModule">
+  <h2>Livrables à préparer</h2>
+  <ul id="livrablesList"></ul>
+  <div class="livrable-actions">
+    <select id="livrablePromptSelect">
+      <option value="1">Plan détaillé</option>
+      <option value="2">Résumé exécutif</option>
+      <option value="3">Checklist rapide</option>
+    </select>
+    <button id="generateLivrableBtn">Générer contenu LLM</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
