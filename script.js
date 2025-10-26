@@ -1,18 +1,28 @@
-// Navigation entre stacks
+// --- Navigation entre Stack1 et Stack2 ---
+const btnStack1 = document.getElementById("btnStack1");
+const btnStack2 = document.getElementById("btnStack2");
+const frame1 = document.getElementById("frameStack1");
+const frame2 = document.getElementById("frameStack2");
+
 function showStack(stack) {
-  document.getElementById('frameStack1').style.display = stack === 'stack1' ? 'block' : 'none';
-  document.getElementById('frameStack2').style.display = stack === 'stack2' ? 'block' : 'none';
-}
-showStack('stack1'); // Affiche Stack1 au lancement
-
-// Exemple d'injection texte Stack1 → Stack2
-// Dans stack1/script.js, tu peux appeler : 
-// parent.updateStack2("nouveau texte");
-
-function updateStack2(text) {
-  const stack2Frame = document.getElementById('frameStack2');
-  stack2Frame.contentWindow.updateText(text);
+  frame1.classList.remove("active");
+  frame2.classList.remove("active");
+  if(stack==="stack1") frame1.classList.add("active");
+  if(stack==="stack2") frame2.classList.add("active");
 }
 
-// Dans stack2/script.js, ajoute :
-// function updateText(text) { document.getElementById('cadre').textContent = text; }
+btnStack1.addEventListener("click", ()=> showStack("stack1"));
+btnStack2.addEventListener("click", ()=> showStack("stack2"));
+
+// Afficher Stack1 par défaut
+showStack("stack1");
+
+// --- Fonction pour envoyer JSON de Stack1 vers Stack2 ---
+window.sendJSONToStack2 = function(jsonData){
+  if(frame2.contentWindow && frame2.contentWindow.updateFromStack1){
+    frame2.contentWindow.updateFromStack1(jsonData);
+    alert("✅ JSON envoyé à Stack2 !");
+  } else {
+    alert("❌ Stack2 n'est pas encore chargé ou updateFromStack1 non défini");
+  }
+};
